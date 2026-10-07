@@ -6,6 +6,16 @@ The content is Markdown files linked to other Markdown files. The browser unders
 
 This is an implementation of version 0.1 of [Dave Winer's Markdown Browser spec](https://gist.github.com/scripting/c81461104f079b7a017802286853c4f1).
 
+![The sample Scripting News site in the Markdown Browser](docs/screenshots/home.png)
+
+## Screenshots
+
+| Every standard Markdown feature | Dark mode follows the system | Phone width |
+|---|---|---|
+| [![Markdown features](docs/screenshots/markdown.png)](docs/screenshots/markdown.png) | [![A post in dark mode, with Previous and Next from front matter](docs/screenshots/post-dark.png)](docs/screenshots/post-dark.png) | [![A post on a phone](docs/screenshots/mobile.png)](docs/screenshots/mobile.png) |
+
+The small bar at the top is the whole browser chrome: Back, Forward, Home, and Source (the raw Markdown). Previous and Next appear when a document's front matter names them.
+
 ## Run it
 
 You need [Node.js](https://nodejs.org/) 18 or later. There are no other dependencies.
