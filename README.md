@@ -1,6 +1,6 @@
 # BrowseMD: a Markdown Browser
 
-A very simple web browser whose native document format is Markdown.
+A very simple browser whose native document format is Markdown.
 
 The content is Markdown files linked to other Markdown files. The browser understands enough Markdown to render them cleanly and to move between them, with real URLs, working Back and Forward, and reload. The documents themselves have no control over how they look.
 

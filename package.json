@@ -1,7 +1,7 @@
 {
   "name": "browsemd",
   "version": "0.1.0",
-  "description": "A very simple web browser whose native document format is Markdown.",
+  "description": "A very simple browser whose native document format is Markdown.",
   "license": "MIT",
   "author": "DigitallyAdrift142",
   "repository": {
