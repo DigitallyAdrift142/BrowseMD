@@ -1,0 +1,128 @@
+/* The one built-in reading style. Documents can't change it. */
+
+:root {
+	--paper: #fdfcf9;
+	--ink: #222;
+	--muted: #6b6b6b;
+	--rule: #e3e0d8;
+	--link: #1d4f91;
+	--code-bg: #f3f1ec;
+	color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--paper: #1b1b1a;
+		--ink: #e6e3dc;
+		--muted: #9a978f;
+		--rule: #3a3936;
+		--link: #8db4ea;
+		--code-bg: #262624;
+	}
+}
+
+* { box-sizing: border-box; }
+
+html {
+	background: var(--paper);
+	color: var(--ink);
+	font: 19px/1.6 Charter, "Bitstream Charter", "Iowan Old Style", Georgia, Cambria, serif;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	max-width: 36em;
+	margin: 0 auto;
+	padding: 0 1.25em 4em;
+}
+
+/* --- browser chrome: small, quiet, out of the way --- */
+
+.chrome {
+	display: flex;
+	gap: 1.25em;
+	align-items: baseline;
+	padding: 0.9em 0 0.7em;
+	margin-bottom: 1.5em;
+	border-bottom: 1px solid var(--rule);
+	font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+.chrome button, .chrome a {
+	font: inherit;
+	color: var(--muted);
+	background: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.chrome button:hover:not(:disabled), .chrome a:hover { color: var(--ink); }
+.chrome button:disabled { opacity: 0.4; cursor: default; }
+.chrome #source { margin-left: auto; }
+
+.relations {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3em;
+	padding-top: 1em;
+	border-top: 1px solid var(--rule);
+	font: 15px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+.relations[hidden] { display: none; }
+.relations a[rel="next"] { margin-left: auto; }
+
+/* --- the document --- */
+
+main:focus { outline: none; }
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.25;
+	margin: 1.6em 0 0.5em;
+	font-weight: 700;
+}
+h1 { font-size: 1.75em; margin-top: 0.4em; }
+h2 { font-size: 1.35em; }
+h3 { font-size: 1.12em; }
+h4, h5, h6 { font-size: 1em; }
+h5, h6 { color: var(--muted); }
+
+p, ul, ol, blockquote, pre { margin: 0 0 1em; }
+
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 2px; }
+
+ul, ol { padding-left: 1.5em; }
+li { margin: 0.2em 0; }
+li > ul, li > ol { margin: 0.2em 0; }
+
+blockquote {
+	margin-left: 0;
+	padding-left: 1em;
+	border-left: 3px solid var(--rule);
+	color: var(--muted);
+}
+
+code, pre {
+	font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+	font-size: 0.82em;
+}
+code { background: var(--code-bg); padding: 0.1em 0.3em; border-radius: 3px; }
+pre {
+	background: var(--code-bg);
+	padding: 0.9em 1em;
+	border-radius: 4px;
+	overflow-x: auto;
+	line-height: 1.45;
+	tab-size: 4;
+}
+pre code { background: none; padding: 0; font-size: 1em; }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
+
+img { max-width: 100%; height: auto; }
+
+@media (max-width: 500px) {
+	html { font-size: 17px; }
+}

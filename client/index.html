@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Markdown Browser</title>
+	<link rel="icon" href="data:,">
+	<link rel="stylesheet" href="/_mb/style.css">
+	<script src="/_mb/lib/documentModel.js" defer></script>
+	<script src="/_mb/lib/parseMarkdown.js" defer></script>
+	<script src="/_mb/renderHtml.js" defer></script>
+	<script src="/_mb/browser.js" defer></script>
+</head>
+<body>
+	<nav class="chrome" aria-label="Browser">
+		<button type="button" id="back" title="Back">&lsaquo; Back</button>
+		<button type="button" id="forward" title="Forward">Forward &rsaquo;</button>
+		<a id="home" href="/">Home</a>
+		<a id="source" href="/" title="View the Markdown for this page">Source</a>
+	</nav>
+	<main id="page" aria-live="polite"></main>
+	<nav class="relations" id="relations" aria-label="Related documents" hidden></nav>
+	<noscript><p>The Markdown Browser needs JavaScript to display documents. You can still read the raw Markdown by fetching this URL with a non-browser client.</p></noscript>
+</body>
+</html>

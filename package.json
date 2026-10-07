@@ -1,0 +1,28 @@
+{
+  "name": "browsemd",
+  "version": "0.1.0",
+  "description": "A very simple web browser whose native document format is Markdown.",
+  "license": "MIT",
+  "author": "DigitallyAdrift142",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DigitallyAdrift142/BrowseMD.git"
+  },
+  "bin": {
+    "browsemd": "server.js"
+  },
+  "main": "server.js",
+  "files": [
+    "server.js",
+    "lib/",
+    "client/",
+    "site/"
+  ],
+  "scripts": {
+    "start": "node server.js site",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
