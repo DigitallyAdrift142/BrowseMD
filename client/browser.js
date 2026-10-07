@@ -22,6 +22,9 @@
 	async function fetchMarkdown(url) {
 		try {
 			var res = await fetch(url.pathname, { headers: { Accept: "text/markdown" } });
+			// Not Markdown: most likely a login page from a proxy in front of the
+			// server. Hand the navigation to the browser so the login flow can run.
+			if (res.ok && (res.redirected || !/markdown/.test(res.headers.get("Content-Type") || ""))) return null;
 			if (res.ok) return await res.text();
 			if (res.status === 404) return messageDocument("Not found", "There is no document at `" + url.pathname + "`.");
 			return messageDocument("Error " + res.status, "The server couldn't return `" + url.pathname + "`.");
@@ -37,6 +40,11 @@
 		var seq = ++loadSeq;
 		var text = await fetchMarkdown(url);
 		if (seq !== loadSeq) return; // a newer navigation started while we waited
+		if (text === null) {
+			if (how === "push") location.assign(url.href);
+			else page.textContent = "This page isn't Markdown. Try reloading.";
+			return;
+		}
 
 		var doc = MarkdownParser.parseMarkdown(text, url.pathname);
 		if (how === "push") {
